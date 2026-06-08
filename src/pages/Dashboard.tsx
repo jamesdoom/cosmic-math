@@ -80,8 +80,7 @@ function Dashboard({
       }
     >
       <section className="panel dashboard-panel">
-        <p className="eyebrow">Mission Control</p>
-        <h1>Welcome, {profile.name}</h1>
+        <DashboardHero profileName={profile.name} />
 
         <StatsPanel
           completedMissionCount={completedMissionCount}
@@ -132,6 +131,25 @@ function Dashboard({
         />
       </section>
     </main>
+  );
+}
+
+function DashboardHero({ profileName }: { profileName: string }) {
+  return (
+    <div className="dashboard-hero">
+      <div>
+        <p className="eyebrow">Mission Control</p>
+        <h1>Welcome, {profileName}</h1>
+      </div>
+
+      <div className="dashboard-hero-art">
+        <img
+          alt=""
+          className="dashboard-hero-image"
+          src="/hero-dashboard.webp"
+        />
+      </div>
+    </div>
   );
 }
 
