@@ -82,6 +82,13 @@ function Dashboard({
       <section className="panel dashboard-panel">
         <DashboardHero profileName={profile.name} />
 
+        <CurrentObjective
+          activePlanet={activePlanet}
+          isPlanetUnlocked={activePlanetUnlocked}
+          recommendedMission={recommendedMission}
+          onContinueMission={onContinueMission}
+        />
+
         <StatsPanel
           completedMissionCount={completedMissionCount}
           profile={profile}
@@ -109,6 +116,7 @@ function Dashboard({
         />
         <FlightPlan
           missionStops={missionStops}
+          recommendedMission={recommendedMission}
           onContinueMission={onContinueMission}
         />
         <ShipHangar
@@ -132,6 +140,62 @@ function Dashboard({
       </section>
     </main>
   );
+}
+
+type CurrentObjectiveProps = {
+  activePlanet: Planet;
+  isPlanetUnlocked: boolean;
+  recommendedMission?: MissionStop;
+  onContinueMission: (missionId: string) => void;
+};
+
+function CurrentObjective({
+  activePlanet,
+  isPlanetUnlocked,
+  recommendedMission,
+  onContinueMission,
+}: CurrentObjectiveProps) {
+  const objectiveTitle = recommendedMission
+    ? recommendedMission.mission.title
+    : isPlanetUnlocked
+      ? `${activePlanet.name} complete`
+      : `${activePlanet.name} locked`;
+  const objectiveCopy = recommendedMission
+    ? getObjectiveCopy(recommendedMission, activePlanet)
+    : isPlanetUnlocked
+      ? "This route is clear. Choose another unlocked planet or replay a mission for practice."
+      : "Complete the previous planet route to unlock this destination.";
+
+  return (
+    <section className="current-objective">
+      <div>
+        <p className="eyebrow">Current Objective</p>
+        <h2>{objectiveTitle}</h2>
+        <p>{objectiveCopy}</p>
+      </div>
+
+      {recommendedMission ? (
+        <button
+          className="objective-action"
+          onClick={() => onContinueMission(recommendedMission.mission.id)}
+        >
+          Launch Next Mission
+        </button>
+      ) : (
+        <span className="objective-status">
+          {isPlanetUnlocked ? "Route complete" : "Locked"}
+        </span>
+      )}
+    </section>
+  );
+}
+
+function getObjectiveCopy(stop: MissionStop, activePlanet: Planet) {
+  if (stop.state === "in-progress") {
+    return `Resume ${stop.mission.topic} training on ${activePlanet.name}. Improve your best score to keep moving.`;
+  }
+
+  return `Start ${stop.mission.topic} training on ${activePlanet.name}. Complete this mission to open the next route stop.`;
 }
 
 function DashboardHero({ profileName }: { profileName: string }) {
@@ -629,11 +693,13 @@ function QuestNode({
 
 type FlightPlanProps = {
   missionStops: MissionStop[];
+  recommendedMission?: MissionStop;
   onContinueMission: (missionId: string) => void;
 };
 
 function FlightPlan({
   missionStops,
+  recommendedMission,
   onContinueMission,
 }: FlightPlanProps) {
   return (
@@ -650,6 +716,7 @@ function FlightPlan({
         {missionStops.map((stop, index) => (
           <MissionCard
             index={index}
+            isRecommended={stop.mission.id === recommendedMission?.mission.id}
             key={stop.mission.id}
             stop={stop}
             onContinueMission={onContinueMission}
@@ -663,12 +730,14 @@ function FlightPlan({
 type MissionCardProps = {
   stop: MissionStop;
   index: number;
+  isRecommended: boolean;
   onContinueMission: (missionId: string) => void;
 };
 
 function MissionCard({
   stop,
   index,
+  isRecommended,
   onContinueMission,
 }: MissionCardProps) {
   const { mission, progress, state } = stop;
@@ -686,13 +755,17 @@ function MissionCard({
   const stateNote = getMissionStateNote(stop);
 
   return (
-    <article className={`mission-card ${missionStateClass}`}>
+    <article
+      className={`mission-card ${missionStateClass}${
+        isRecommended ? " recommended" : ""
+      }`}
+    >
       <div className="mission-card-top">
         <p className="mission-number">Mission {index + 1}</p>
         <span
           className={`status-pill ${getStatusPillClass(state)}`}
         >
-          {statusText}
+          {isRecommended ? "Recommended" : statusText}
         </span>
       </div>
 
