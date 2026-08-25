@@ -58,6 +58,19 @@ function normalizeAnswer(answer: string | number): string {
   return String(answer).trim().toLowerCase();
 }
 
+function isCorrectAnswer(answer: string, correctAnswer: string | number): boolean {
+  if (typeof correctAnswer === "number") {
+    const submittedNumber = Number(answer.trim());
+
+    return (
+      Number.isFinite(submittedNumber) &&
+      Math.abs(submittedNumber - correctAnswer) < 0.001
+    );
+  }
+
+  return normalizeAnswer(answer) === normalizeAnswer(correctAnswer);
+}
+
 function scoreAttempt(answers: AnswerRecord[], totalQuestions: number): number {
   if (totalQuestions === 0) {
     return 0;
@@ -297,8 +310,7 @@ function Mission({
       return;
     }
 
-    const correct =
-      normalizeAnswer(answer) === normalizeAnswer(question.correctAnswer);
+    const correct = isCorrectAnswer(answer, question.correctAnswer);
     playSoundCue(
       correct ? "correct" : "incorrect",
       profile.settings.soundEnabled,
@@ -477,11 +489,11 @@ function MissionReport({
 
         {summary.unlockedPlanetName && (
           <div className="planet-unlock-callout">
-            <p className="eyebrow">New Planet Unlocked</p>
+            <p className="eyebrow">New Route Unlocked</p>
             <h2>{summary.unlockedPlanetName}</h2>
             <p>
               Your next route is ready. Return to Mission Control to launch
-              from the new planet.
+              from the new destination.
             </p>
           </div>
         )}
@@ -527,7 +539,7 @@ function RewardHighlights({ badgeName, summary }: RewardHighlightsProps) {
       tone: summary.badgeEarned ? "earned" : "quiet",
     },
     {
-      label: "Planet",
+      label: "Route",
       value: summary.unlockedPlanetName ? "Unlocked" : "No change",
       detail: summary.unlockedPlanetName ?? "Keep clearing the route",
       tone: summary.unlockedPlanetName ? "earned" : "quiet",

@@ -1,13 +1,17 @@
 # Cosmic Math
 
-Cosmic Math is a space-themed math practice app for mission-based learning. Students complete math missions, earn stars and XP, unlock badges and ships, and progress from planet to planet.
+Cosmic Math is a space-themed math practice app for mission-based learning. This build is tailored for a 7th-grade Unit 1 review path focused on statistics, ratios, rational numbers, absolute value, and integer operations.
 
 ## Features
 
 - Mission-based math practice with multiple-choice and numeric answers
 - Saved local profile progress with stars, XP, rank, badges, ships, and settings
 - Mission Control dashboard with planet routes, quest map, flight plan, ship hangar, badge collection, and settings
-- Two planet routes: Ratio Rocketway and Fraction Frontier
+- One focused Unit 1 route with four missions:
+  - Statistics and Interpreting Data
+  - Ratio Relationships
+  - Rational Numbers and Absolute Value
+  - Operations with Integers
 - Motion and sound settings for classroom-friendly feedback control
 - Developer test controls for resetting progress and granting test stars
 

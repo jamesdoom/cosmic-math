@@ -10,9 +10,7 @@ function App() {
   const [profile, setProfile] = useState<StudentProfile | null>(() =>
     loadSavedProfile(),
   );
-  const [selectedMissionId, setSelectedMissionId] = useState(
-    "fuel-speed-academy",
-  );
+  const [selectedMissionId, setSelectedMissionId] = useState("data-observatory");
 
   const [currentScreen, setCurrentScreen] = useState<"dashboard" | "mission">(
     "dashboard",
@@ -116,7 +114,7 @@ function App() {
     resetProfile();
     setProfile(null);
     setCurrentScreen("dashboard");
-    setSelectedMissionId("fuel-speed-academy");
+    setSelectedMissionId("data-observatory");
   }
 
   if (!profile) {
@@ -139,11 +137,11 @@ function App() {
       profile={profile}
       onContinueMission={handleSelectMission}
       onEquipShip={handleEquipShip}
-        onUnlockShip={handleUnlockShip}
-        onUpdateSettings={handleUpdateSettings}
-        onGrantTestStars={handleGrantTestStars}
-        onResetProfile={handleResetProfile}
-      />
+      onUnlockShip={handleUnlockShip}
+      onUpdateSettings={handleUpdateSettings}
+      onGrantTestStars={handleGrantTestStars}
+      onResetProfile={handleResetProfile}
+    />
   );
 }
 

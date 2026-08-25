@@ -163,8 +163,8 @@ function CurrentObjective({
   const objectiveCopy = recommendedMission
     ? getObjectiveCopy(recommendedMission, activePlanet)
     : isPlanetUnlocked
-      ? "This route is clear. Choose another unlocked planet or replay a mission for practice."
-      : "Complete the previous planet route to unlock this destination.";
+      ? "This route is clear. Replay a mission to keep sharpening Unit 1 skills."
+      : "Complete the previous route to unlock this destination.";
 
   return (
     <section className="current-objective">
@@ -192,10 +192,10 @@ function CurrentObjective({
 
 function getObjectiveCopy(stop: MissionStop, activePlanet: Planet) {
   if (stop.state === "in-progress") {
-    return `Resume ${stop.mission.topic} training on ${activePlanet.name}. Improve your best score to keep moving.`;
+    return `Resume ${stop.mission.topic} training in ${activePlanet.name}. Improve your best score to keep moving.`;
   }
 
-  return `Start ${stop.mission.topic} training on ${activePlanet.name}. Complete this mission to open the next route stop.`;
+  return `Start ${stop.mission.topic} training in ${activePlanet.name}. Complete this mission to open the next route stop.`;
 }
 
 function DashboardHero({ profileName }: { profileName: string }) {
@@ -434,7 +434,7 @@ function PlanetOverview({
 
   return (
     <div className={isUnlocked ? "planet-overview" : "planet-overview locked"}>
-      <p className="eyebrow">{isUnlocked ? "Current Planet" : "Locked Planet"}</p>
+      <p className="eyebrow">{isUnlocked ? "Current Route" : "Locked Route"}</p>
       <h2>{activePlanet.name}</h2>
       <p className="section-summary">{activePlanet.description}</p>
       <p className="ship-line">
@@ -484,10 +484,10 @@ function PlanetSelector({
     <div className="planet-selector-section">
       <div className="section-header">
         <div>
-          <p className="eyebrow">Galaxy Route</p>
-          <h2>Planets</h2>
+          <p className="eyebrow">Unit Path</p>
+          <h2>Unit Routes</h2>
           <p className="section-summary">
-            Complete each route to unlock the next planet.
+            Work through the Unit 1 route in order.
           </p>
         </div>
       </div>
@@ -555,7 +555,7 @@ function PlanetCard({
       type="button"
     >
       <span className="planet-selector-top">
-        <span className="mission-number">Planet {index + 1}</span>
+        <span className="mission-number">Route {index + 1}</span>
         <span
           className={
             isComplete
@@ -638,8 +638,8 @@ function QuestMap({
             {recommendedMission
               ? `Standing by for ${recommendedMission.mission.title}.`
               : isPlanetUnlocked
-                ? "This planet route is complete."
-                : "Complete the previous planet to launch here."}
+                ? "This route is complete."
+                : "Complete the previous route to launch here."}
           </p>
         </div>
       </div>

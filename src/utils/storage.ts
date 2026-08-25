@@ -1,11 +1,13 @@
 import type { StudentProfile } from "../types";
+import { badges } from "../data/badges";
+import { missions } from "../data/missions";
 import { ships } from "../data/ships";
 import { planets } from "../data/planets";
 import { getRankForXp } from "./ranks";
 
 const STORAGE_KEY = "cosmic-math-student-profile";
 const STARTER_SHIP_ID = "explorer-shuttle";
-const STARTER_PLANET_ID = "ratio-rocketway";
+const STARTER_PLANET_ID = "unit-one-orbit";
 
 export function createDefaultProfile(name = "Cadet"): StudentProfile {
   return {
@@ -16,7 +18,7 @@ export function createDefaultProfile(name = "Cadet"): StudentProfile {
     equippedShipId: "explorer-shuttle",
     unlockedShipIds: ["explorer-shuttle"],
     completedMissions: [],
-    unlockedPlanetIds: ["ratio-rocketway"],
+    unlockedPlanetIds: ["unit-one-orbit"],
     earnedBadgeIds: [],
     settings: {
       motionEnabled: true,
@@ -88,6 +90,8 @@ function normalizeProfile(savedProfile: unknown): StudentProfile {
     repairedUnlockedShipIds.includes(profileRecord.equippedShipId)
       ? profileRecord.equippedShipId
       : STARTER_SHIP_ID;
+  const knownMissionIds = missions.map((mission) => mission.id);
+  const knownBadgeIds = badges.map((badge) => badge.id);
 
   return {
     ...fallbackProfile,
@@ -101,17 +105,21 @@ function normalizeProfile(savedProfile: unknown): StudentProfile {
     equippedShipId,
     unlockedShipIds: repairedUnlockedShipIds,
     completedMissions: Array.isArray(profileRecord.completedMissions)
-      ? profileRecord.completedMissions.map((missionProgress) => ({
-          missionId: missionProgress.missionId,
-          completed: Boolean(missionProgress.completed),
-          highestScore: normalizeNonNegativeNumber(
-            missionProgress.highestScore,
-          ),
-          attempts: normalizeNonNegativeNumber(missionProgress.attempts),
-          starsEarned: normalizeNonNegativeNumber(
-            missionProgress.starsEarned,
-          ),
-        }))
+      ? profileRecord.completedMissions
+          .filter((missionProgress) =>
+            knownMissionIds.includes(missionProgress.missionId),
+          )
+          .map((missionProgress) => ({
+            missionId: missionProgress.missionId,
+            completed: Boolean(missionProgress.completed),
+            highestScore: normalizeNonNegativeNumber(
+              missionProgress.highestScore,
+            ),
+            attempts: normalizeNonNegativeNumber(missionProgress.attempts),
+            starsEarned: normalizeNonNegativeNumber(
+              missionProgress.starsEarned,
+            ),
+          }))
       : fallbackProfile.completedMissions,
     unlockedPlanetIds: uniqueStrings([
       STARTER_PLANET_ID,
@@ -119,7 +127,9 @@ function normalizeProfile(savedProfile: unknown): StudentProfile {
         (planetId) => planets.some((planet) => planet.id === planetId),
       ),
     ]),
-    earnedBadgeIds: normalizeStringList(profileRecord.earnedBadgeIds),
+    earnedBadgeIds: normalizeStringList(profileRecord.earnedBadgeIds).filter(
+      (badgeId) => knownBadgeIds.includes(badgeId),
+    ),
     settings: {
       motionEnabled:
         profileRecord.settings?.motionEnabled ??
