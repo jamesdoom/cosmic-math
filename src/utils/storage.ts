@@ -7,7 +7,10 @@ import { getRankForXp } from "./ranks";
 
 const STORAGE_KEY = "cosmic-math-student-profile";
 const STARTER_SHIP_ID = "explorer-shuttle";
-const STARTER_PLANET_ID = "unit-one-orbit";
+
+function getDefaultUnlockedPlanetIds(): string[] {
+  return planets.map((planet) => planet.id);
+}
 
 export function createDefaultProfile(name = "Cadet"): StudentProfile {
   return {
@@ -18,7 +21,7 @@ export function createDefaultProfile(name = "Cadet"): StudentProfile {
     equippedShipId: "explorer-shuttle",
     unlockedShipIds: ["explorer-shuttle"],
     completedMissions: [],
-    unlockedPlanetIds: ["unit-one-orbit"],
+    unlockedPlanetIds: getDefaultUnlockedPlanetIds(),
     earnedBadgeIds: [],
     settings: {
       motionEnabled: true,
@@ -122,7 +125,7 @@ function normalizeProfile(savedProfile: unknown): StudentProfile {
           }))
       : fallbackProfile.completedMissions,
     unlockedPlanetIds: uniqueStrings([
-      STARTER_PLANET_ID,
+      ...getDefaultUnlockedPlanetIds(),
       ...normalizeStringList(profileRecord.unlockedPlanetIds).filter(
         (planetId) => planets.some((planet) => planet.id === planetId),
       ),

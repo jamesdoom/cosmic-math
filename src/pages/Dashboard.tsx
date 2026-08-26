@@ -315,8 +315,6 @@ function getMissionStops(
   progressList: MissionProgress[],
   isPlanetUnlocked: boolean,
 ): MissionStop[] {
-  let routeIsOpen = isPlanetUnlocked;
-
   return missionList.map((mission) => {
     const progress = progressList.find(
       (missionProgress) => missionProgress.missionId === mission.id,
@@ -324,19 +322,15 @@ function getMissionStops(
     const hasQuestions = mission.questionIds.length > 0;
     const isPerfected =
       Boolean(progress?.completed) && progress?.highestScore === 100;
-    const state: MissionStopState = !hasQuestions || !routeIsOpen
+    const state: MissionStopState = !hasQuestions || !isPlanetUnlocked
       ? "locked"
       : isPerfected
         ? "perfected"
         : progress?.completed
           ? "completed"
           : progress
-            ? "in-progress"
-            : "ready";
-
-    if (!progress?.completed) {
-      routeIsOpen = false;
-    }
+          ? "in-progress"
+          : "ready";
 
     return {
       mission,
@@ -708,7 +702,7 @@ function FlightPlan({
         <div>
           <p className="eyebrow">Mission Route</p>
           <h2>Missions</h2>
-          <p className="section-summary">Launch the next route stop or replay a completed mission.</p>
+          <p className="section-summary">Choose any lesson, or follow the recommended next launch.</p>
         </div>
       </div>
 
@@ -854,7 +848,7 @@ function getMissionStateNote({ mission, progress, state }: MissionStop) {
     case "locked":
       return mission.questionIds.length === 0
         ? "Locked until mission questions are added."
-        : "Complete the previous mission to unlock this stop.";
+        : "This route is not available yet.";
     case "ready":
       return progress ? "Ready for another attempt." : "Recommended next launch.";
   }
