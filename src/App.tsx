@@ -10,7 +10,7 @@ function App() {
   const [profile, setProfile] = useState<StudentProfile | null>(() =>
     loadSavedProfile(),
   );
-  const [selectedMissionId, setSelectedMissionId] = useState("data-observatory");
+  const [selectedMissionId, setSelectedMissionId] = useState("integer-opposites");
 
   const [currentScreen, setCurrentScreen] = useState<"dashboard" | "mission">(
     "dashboard",
@@ -114,7 +114,7 @@ function App() {
     resetProfile();
     setProfile(null);
     setCurrentScreen("dashboard");
-    setSelectedMissionId("data-observatory");
+    setSelectedMissionId("integer-opposites");
   }
 
   if (!profile) {
