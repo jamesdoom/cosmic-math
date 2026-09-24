@@ -11,7 +11,7 @@ function App() {
     loadSavedProfile(),
   );
   const [selectedMissionId, setSelectedMissionId] = useState(
-    "proportional-equivalent-ratios",
+    "exploring-sample-space",
   );
 
   const [currentScreen, setCurrentScreen] = useState<"dashboard" | "mission">(
@@ -116,7 +116,7 @@ function App() {
     resetProfile();
     setProfile(null);
     setCurrentScreen("dashboard");
-    setSelectedMissionId("proportional-equivalent-ratios");
+    setSelectedMissionId("exploring-sample-space");
   }
 
   if (!profile) {
