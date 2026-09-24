@@ -10,7 +10,9 @@ function App() {
   const [profile, setProfile] = useState<StudentProfile | null>(() =>
     loadSavedProfile(),
   );
-  const [selectedMissionId, setSelectedMissionId] = useState("integer-opposites");
+  const [selectedMissionId, setSelectedMissionId] = useState(
+    "proportional-equivalent-ratios",
+  );
 
   const [currentScreen, setCurrentScreen] = useState<"dashboard" | "mission">(
     "dashboard",
@@ -114,7 +116,7 @@ function App() {
     resetProfile();
     setProfile(null);
     setCurrentScreen("dashboard");
-    setSelectedMissionId("integer-opposites");
+    setSelectedMissionId("proportional-equivalent-ratios");
   }
 
   if (!profile) {

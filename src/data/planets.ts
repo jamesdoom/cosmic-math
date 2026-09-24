@@ -2,21 +2,16 @@ import type { Planet } from "../types";
 
 export const planets: Planet[] = [
   {
-    id: "unit-one-orbit",
-    name: "Unit 1 Orbit",
+    id: "unit-two-orbit",
+    name: "Unit 2 Orbit",
     description:
-      "Prepare for Unit 1: Rational Number Operations with integer, decimal, fraction, and real-world problem practice.",
+      "Prepare for Unit 2: Analyze and Use Proportional Relationships with equivalent ratios, constants, graphs, conversions, and problem solving.",
     missionIds: [
-      "integer-opposites",
-      "understand-rational-numbers",
-      "adding-integers",
-      "subtracting-integers",
-      "add-subtract-rational-numbers",
-      "multiply-integers",
-      "multiply-rational-numbers",
-      "divide-integers",
-      "divide-rational-numbers",
-      "rational-number-problems",
+      "proportional-equivalent-ratios",
+      "constant-of-proportionality",
+      "graph-proportional-relationships",
+      "customary-metric-units",
+      "apply-proportional-reasoning",
     ],
   },
 ];

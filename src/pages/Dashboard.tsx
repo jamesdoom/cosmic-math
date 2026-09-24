@@ -163,7 +163,7 @@ function CurrentObjective({
   const objectiveCopy = recommendedMission
     ? getObjectiveCopy(recommendedMission, activePlanet)
     : isPlanetUnlocked
-      ? "This route is clear. Replay a mission to keep sharpening Unit 1 skills."
+      ? "This route is clear. Replay a mission to keep sharpening Unit 2 skills."
       : "Complete the previous route to unlock this destination.";
 
   return (
@@ -481,7 +481,7 @@ function PlanetSelector({
           <p className="eyebrow">Unit Path</p>
           <h2>Unit Routes</h2>
           <p className="section-summary">
-            Work through the Unit 1 route in order.
+            Work through the Unit 2 route in order.
           </p>
         </div>
       </div>
