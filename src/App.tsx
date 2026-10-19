@@ -11,7 +11,7 @@ function App() {
     loadSavedProfile(),
   );
   const [selectedMissionId, setSelectedMissionId] = useState(
-    "exploring-sample-space",
+    "adding-rational-numbers",
   );
 
   const [currentScreen, setCurrentScreen] = useState<"dashboard" | "mission">(
@@ -116,7 +116,7 @@ function App() {
     resetProfile();
     setProfile(null);
     setCurrentScreen("dashboard");
-    setSelectedMissionId("exploring-sample-space");
+    setSelectedMissionId("adding-rational-numbers");
   }
 
   if (!profile) {

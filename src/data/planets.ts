@@ -2,20 +2,19 @@ import type { Planet } from "../types";
 
 export const planets: Planet[] = [
   {
-    id: "unit-two-probability",
-    name: "Unit 2 - Probability",
+    id: "unit-three-rational-numbers",
+    name: "Unit 3 - Operations with Rational Numbers",
     description:
-      "Prepare for Unit 2 with sample spaces, equivalent number forms, probability, experiments, and simulations.",
+      "Prepare for Unit 3 by adding, subtracting, multiplying, dividing, and solving real-world problems with rational numbers.",
     missionIds: [
-      "exploring-sample-space",
-      "determining-sample-space",
-      "equivalent-number-forms",
-      "repeating-decimals-fractions",
-      "probability",
-      "comparing-probabilities",
-      "experimental-theoretical-probability",
-      "simulating-trials",
-      "probabilities-from-simulations",
+      "adding-rational-numbers",
+      "subtracting-rational-numbers",
+      "multiplying-rational-numbers",
+      "dividing-rational-numbers",
+      "rational-problems-part-one",
+      "rational-problems-part-two",
+      "rational-problems-part-three",
+      "rational-problems-part-four",
     ],
   },
 ];

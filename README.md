@@ -1,22 +1,21 @@
 # Cosmic Math
 
-Cosmic Math is a space-themed math practice app for mission-based learning. This build is tailored for the 2022 Florida B.E.S.T. Grade 7 Unit 2 test on probability.
+Cosmic Math is a space-themed math practice app for mission-based learning. This build is tailored for the 2022 Florida B.E.S.T. Grade 7 Unit 3 test on operations with rational numbers.
 
 ## Features
 
 - Mission-based math practice with multiple-choice and numeric answers
 - Saved local profile progress with stars, XP, rank, badges, ships, and settings
 - Mission Control dashboard with planet routes, quest map, flight plan, ship hangar, badge collection, and settings
-- One focused Unit 2 route with nine unlocked lesson missions:
-  - 2.1 Exploring Sample Space
-  - 2.2 Determining Sample Space
-  - 2.3 Rewriting Numbers in Equivalent Forms
-  - 2.4 Converting Between Repeating Decimals and Fractions
-  - 2.5 Probability
-  - 2.6 Comparing Probabilities
-  - 2.7 Experimental and Theoretical Probability
-  - 2.8 Simulating Small and Large Numbers of Trials
-  - 2.9 Experimental and Theoretical Probabilities From Simulations
+- One focused Unit 3 route with eight unlocked lesson missions:
+  - 3.1 Adding Rational Numbers
+  - 3.2 Subtracting Rational Numbers
+  - 3.3 Multiplying Rational Numbers
+  - 3.4 Dividing Rational Numbers
+  - 3.5 Solving Real-World Problems With Rational Numbers - Part 1
+  - 3.6 Solving Real-World Problems With Rational Numbers - Part 2
+  - 3.7 Solving Real-World Problems With Rational Numbers - Part 3
+  - 3.8 Solving Real-World Problems With Rational Numbers - Part 4
 - Motion and sound settings for classroom-friendly feedback control
 - Developer test controls for resetting progress and granting test stars
 
