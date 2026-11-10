@@ -2,19 +2,16 @@ import type { Planet } from "../types";
 
 export const planets: Planet[] = [
   {
-    id: "unit-three-rational-numbers",
-    name: "Unit 3 - Operations with Rational Numbers",
+    id: "unit-four-circles",
+    name: "Unit 4 - Circles",
     description:
-      "Prepare for Unit 3 by adding, subtracting, multiplying, dividing, and solving real-world problems with rational numbers.",
+      "Prepare for Unit 4 by exploring circle relationships and solving problems with circumference, radius, diameter, and area.",
     missionIds: [
-      "adding-rational-numbers",
-      "subtracting-rational-numbers",
-      "multiplying-rational-numbers",
-      "dividing-rational-numbers",
-      "rational-problems-part-one",
-      "rational-problems-part-two",
-      "rational-problems-part-three",
-      "rational-problems-part-four",
+      "circle-relationships",
+      "finding-circumference",
+      "finding-radius-diameter",
+      "exploring-circle-area",
+      "finding-circle-area",
     ],
   },
 ];

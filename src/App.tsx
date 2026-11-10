@@ -11,7 +11,7 @@ function App() {
     loadSavedProfile(),
   );
   const [selectedMissionId, setSelectedMissionId] = useState(
-    "adding-rational-numbers",
+    "circle-relationships",
   );
 
   const [currentScreen, setCurrentScreen] = useState<"dashboard" | "mission">(
@@ -116,7 +116,7 @@ function App() {
     resetProfile();
     setProfile(null);
     setCurrentScreen("dashboard");
-    setSelectedMissionId("adding-rational-numbers");
+    setSelectedMissionId("circle-relationships");
   }
 
   if (!profile) {

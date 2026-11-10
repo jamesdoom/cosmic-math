@@ -1,21 +1,18 @@
 # Cosmic Math
 
-Cosmic Math is a space-themed math practice app for mission-based learning. This build is tailored for the 2022 Florida B.E.S.T. Grade 7 Unit 3 test on operations with rational numbers.
+Cosmic Math is a space-themed math practice app for mission-based learning. This build is tailored to selected circle lessons from the 2022 Florida B.E.S.T. Grade 7 Unit 4 area sequence.
 
 ## Features
 
 - Mission-based math practice with multiple-choice and numeric answers
 - Saved local profile progress with stars, XP, rank, badges, ships, and settings
 - Mission Control dashboard with planet routes, quest map, flight plan, ship hangar, badge collection, and settings
-- One focused Unit 3 route with eight unlocked lesson missions:
-  - 3.1 Adding Rational Numbers
-  - 3.2 Subtracting Rational Numbers
-  - 3.3 Multiplying Rational Numbers
-  - 3.4 Dividing Rational Numbers
-  - 3.5 Solving Real-World Problems With Rational Numbers - Part 1
-  - 3.6 Solving Real-World Problems With Rational Numbers - Part 2
-  - 3.7 Solving Real-World Problems With Rational Numbers - Part 3
-  - 3.8 Solving Real-World Problems With Rational Numbers - Part 4
+- One focused Unit 4 route with five unlocked lesson missions:
+  - 4.5 Exploring Relationships in Circles
+  - 4.6 Finding Circumference
+  - 4.7 Finding Radius and Diameter
+  - 4.8 Exploring the Area of a Circle
+  - 4.9 Finding the Area of a Circle
 - Motion and sound settings for classroom-friendly feedback control
 - Developer test controls for resetting progress and granting test stars
 
