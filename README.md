@@ -1,18 +1,23 @@
 # Cosmic Math
 
-Cosmic Math is a space-themed math practice app for mission-based learning. This build is tailored to selected circle lessons from the 2022 Florida B.E.S.T. Grade 7 Unit 4 area sequence.
+Cosmic Math is a space-themed math practice app for mission-based learning. This build covers the complete 2022 Florida B.E.S.T. Grade 7 Unit 4 area sequence.
 
 ## Features
 
 - Mission-based math practice with multiple-choice and numeric answers
 - Saved local profile progress with stars, XP, rank, badges, ships, and settings
 - Mission Control dashboard with planet routes, quest map, flight plan, ship hangar, badge collection, and settings
-- One focused Unit 4 route with five unlocked lesson missions:
+- One focused Unit 4 route with ten unlocked lesson missions:
+  - 4.1 Deriving Area Formulas for Trapezoids, Parallelograms, and Rhombi
+  - 4.2 Finding the Area of Trapezoids, Parallelograms, and Rhombi
+  - 4.3 Finding the Area of Polygons
+  - 4.4 Finding the Area of Composite Figures
   - 4.5 Exploring Relationships in Circles
   - 4.6 Finding Circumference
   - 4.7 Finding Radius and Diameter
   - 4.8 Exploring the Area of a Circle
   - 4.9 Finding the Area of a Circle
+  - 4.10 Using Circumference and Area to Solve Problems
 - Motion and sound settings for classroom-friendly feedback control
 - Developer test controls for resetting progress and granting test stars
 

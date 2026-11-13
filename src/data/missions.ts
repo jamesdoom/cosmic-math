@@ -7,8 +7,56 @@ const questionIds = (prefix: string) => [
 
 export const missions: Mission[] = [
   {
+    id: "deriving-area-formulas",
+    planetId: "unit-four-area",
+    title: "4.1 Deriving Area Formulas for Trapezoids, Parallelograms, and Rhombi",
+    topic: "Decomposing and Rearranging Quadrilaterals",
+    briefing:
+      "Use familiar rectangle and triangle areas to explain formulas for parallelograms, trapezoids, and rhombi.",
+    badgeRewardId: "formula-forger",
+    xpReward: 50,
+    starReward: 100,
+    questionIds: questionIds("area-derivation"),
+  },
+  {
+    id: "quadrilateral-area",
+    planetId: "unit-four-area",
+    title: "4.2 Finding the Area of Trapezoids, Parallelograms, and Rhombi",
+    topic: "Applying Quadrilateral Area Formulas",
+    briefing:
+      "Calculate the area of parallelograms, trapezoids, and rhombi from their relevant dimensions.",
+    badgeRewardId: "quadrilateral-quantifier",
+    xpReward: 55,
+    starReward: 100,
+    questionIds: questionIds("quadrilateral-area"),
+  },
+  {
+    id: "polygon-area",
+    planetId: "unit-four-area",
+    title: "4.3 Finding the Area of Polygons",
+    topic: "Decomposing Polygons",
+    briefing:
+      "Break polygons into familiar triangles and quadrilaterals, then combine their areas.",
+    badgeRewardId: "polygon-pathfinder",
+    xpReward: 60,
+    starReward: 100,
+    questionIds: questionIds("polygon-area"),
+  },
+  {
+    id: "composite-figure-area",
+    planetId: "unit-four-area",
+    title: "4.4 Finding the Area of Composite Figures",
+    topic: "Adding and Subtracting Areas",
+    briefing:
+      "Decompose composite figures or subtract missing regions to determine total area.",
+    badgeRewardId: "composite-cartographer",
+    xpReward: 60,
+    starReward: 100,
+    questionIds: questionIds("composite-area"),
+  },
+  {
     id: "circle-relationships",
-    planetId: "unit-four-circles",
+    planetId: "unit-four-area",
     title: "4.5 Exploring Relationships in Circles",
     topic: "Radius, Diameter, and Pi",
     briefing:
@@ -20,7 +68,7 @@ export const missions: Mission[] = [
   },
   {
     id: "finding-circumference",
-    planetId: "unit-four-circles",
+    planetId: "unit-four-area",
     title: "4.6 Finding Circumference",
     topic: "Circumference Formulas",
     briefing:
@@ -32,7 +80,7 @@ export const missions: Mission[] = [
   },
   {
     id: "finding-radius-diameter",
-    planetId: "unit-four-circles",
+    planetId: "unit-four-area",
     title: "4.7 Finding Radius and Diameter",
     topic: "Working Backward from Circumference",
     briefing:
@@ -44,7 +92,7 @@ export const missions: Mission[] = [
   },
   {
     id: "exploring-circle-area",
-    planetId: "unit-four-circles",
+    planetId: "unit-four-area",
     title: "4.8 Exploring the Area of a Circle",
     topic: "How Radius Determines Area",
     briefing:
@@ -56,7 +104,7 @@ export const missions: Mission[] = [
   },
   {
     id: "finding-circle-area",
-    planetId: "unit-four-circles",
+    planetId: "unit-four-area",
     title: "4.9 Finding the Area of a Circle",
     topic: "Area Formulas and Applications",
     briefing:
@@ -65,5 +113,17 @@ export const missions: Mission[] = [
     xpReward: 80,
     starReward: 100,
     questionIds: questionIds("circle-area"),
+  },
+  {
+    id: "circle-problem-solving",
+    planetId: "unit-four-area",
+    title: "4.10 Using Circumference and Area to Solve Problems",
+    topic: "Multi-Step Circle Applications",
+    briefing:
+      "Choose circumference or area, combine operations, and solve multi-step circle problems in context.",
+    badgeRewardId: "circle-problem-solver",
+    xpReward: 85,
+    starReward: 100,
+    questionIds: questionIds("circle-applications"),
   },
 ];

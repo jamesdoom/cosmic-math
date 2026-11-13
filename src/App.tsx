@@ -11,7 +11,7 @@ function App() {
     loadSavedProfile(),
   );
   const [selectedMissionId, setSelectedMissionId] = useState(
-    "circle-relationships",
+    "deriving-area-formulas",
   );
 
   const [currentScreen, setCurrentScreen] = useState<"dashboard" | "mission">(
@@ -116,7 +116,7 @@ function App() {
     resetProfile();
     setProfile(null);
     setCurrentScreen("dashboard");
-    setSelectedMissionId("circle-relationships");
+    setSelectedMissionId("deriving-area-formulas");
   }
 
   if (!profile) {
